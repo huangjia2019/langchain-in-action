@@ -8,9 +8,6 @@ from langchain.tools import BaseTool
 from langchain import OpenAI
 from langchain.agents import initialize_agent, AgentType
 
-import os
-os.environ["OPENAI_API_KEY"] = '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'
-
 #---- Part I 初始化图像字幕生成模型
 # 指定要使用的工具模型（HuggingFace中的image-caption模型）
 hf_model = "Salesforce/blip-image-captioning-large"
