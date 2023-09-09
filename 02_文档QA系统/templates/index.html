@@ -1,0 +1,17 @@
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>易速鲜花内部问答系统</h1>
+            <img src="{{ url_for('static', filename='flower.png') }}" alt="flower logo" width="200"> 
+        </div>
+        <form method="POST">
+            <label for="question">Enter your question:</label><br>
+            <input type="text" id="question" name="question"><br>
+            <input type="submit" value="Submit">
+        </form>
+        {% if result is defined %}
+            <h2>Answer</h2>
+            <p>{{ result.result }}</p>
+        {% endif %}
+    </div>
+</body>
