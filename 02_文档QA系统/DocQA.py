@@ -1,7 +1,5 @@
 import os
-os.environ["OPENAI_API_KEY"] = '你的Open AI API Key'
-os.environ["OPENAI_API_KEY"] = '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'
-
+os.environ["OPENAI_API_KEY"] = '你的OpenAI API Key'
 
 # 1.Load 导入Document Loaders
 from langchain.document_loaders import PyPDFLoader
