@@ -22,8 +22,6 @@ for file in os.listdir(base_dir):
         loader = TextLoader(file_path)
         documents.extend(loader.load())
 
-
-
 # 2.Split 将Documents切分成块以便后续进行嵌入和向量存储
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 text_splitter = RecursiveCharacterTextSplitter(chunk_size=200, chunk_overlap=10)
@@ -55,9 +53,7 @@ llm = ChatOpenAI(model_name="gpt-3.5-turbo", temperature=0)
 retriever_from_llm = MultiQueryRetriever.from_llm(retriever=vectorstore.as_retriever(), llm=llm)
 
 # 实例化一个RetrievalQA链
-qa_chain = RetrievalQA.from_chain_type(llm,retriever=vectorstore.as_retriever())
-
-
+qa_chain = RetrievalQA.from_chain_type(llm,retriever=retriever_from_llm)
 
 # 5. Output 问答系统的UI实现
 from flask import Flask, request, render_template
@@ -80,4 +76,3 @@ def home():
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0',debug=True,port=5000)
-
