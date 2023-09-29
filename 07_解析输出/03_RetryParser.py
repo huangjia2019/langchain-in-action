@@ -1,3 +1,6 @@
+'''欢迎来到LangChain实战课
+https://time.geekbang.org/column/intro/100617601
+作者 黄佳'''
 # 定义一个模板字符串，这个模板将用于生成提问
 template = """Based on the user question, provide an Action and Action Input for what step should be taken.
 {format_instructions}

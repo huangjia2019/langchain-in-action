@@ -1,3 +1,7 @@
+'''欢迎来到LangChain实战课
+https://time.geekbang.org/column/intro/100617601
+作者 黄佳'''
+
 import os
 os.environ["OPENAI_API_KEY"] = '你的OpenAI API Key'
 from langchain.chat_models import ChatOpenAI

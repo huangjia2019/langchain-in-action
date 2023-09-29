@@ -1,3 +1,6 @@
+'''欢迎来到LangChain实战课
+https://time.geekbang.org/column/intro/100617601
+作者 黄佳'''
 import openai # 导入OpenAI
 openai.api_key = '你的OpenAI API Key' # API Key
 

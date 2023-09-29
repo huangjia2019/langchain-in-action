@@ -1,3 +1,6 @@
+'''欢迎来到LangChain实战课
+https://time.geekbang.org/column/intro/100617601
+作者 黄佳'''
 # 导入需要的库
 from llama_cpp import Llama
 from typing import Optional, List, Mapping, Any

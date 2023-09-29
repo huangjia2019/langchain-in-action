@@ -1,3 +1,6 @@
+'''欢迎来到LangChain实战课
+https://time.geekbang.org/column/intro/100617601
+作者 黄佳'''
 # 导入HuggingFace API Token
 import os
 os.environ['HUGGINGFACEHUB_API_TOKEN'] = 'Your HuggingFace API Token'

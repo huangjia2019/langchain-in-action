@@ -1,3 +1,6 @@
+'''欢迎来到LangChain实战课
+https://time.geekbang.org/column/intro/100617601
+作者 黄佳'''
 # 设置OpenAI API密钥
 import os
 os.environ["OPENAI_API_KEY"] = 'Your Key'

@@ -1,3 +1,6 @@
+'''欢迎来到LangChain实战课
+https://time.geekbang.org/column/intro/100617601
+作者 黄佳'''
 # 指定预训练模型的名称
 model = "meta-llama/Llama-2-7b-chat-hf"
 

@@ -1,3 +1,6 @@
+'''欢迎来到LangChain实战课
+https://time.geekbang.org/column/intro/100617601
+作者 黄佳'''
 # 导入LangChain中的提示模板
 from langchain import PromptTemplate
 # 创建原始模板
