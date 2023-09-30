@@ -3,8 +3,8 @@ https://time.geekbang.org/column/intro/100617601
 作者 黄佳'''
 # 设置OpenAI和SERPAPI的API密钥
 import os
-os.environ["OPENAI_API_KEY"] = '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'
-os.environ["SERPAPI_API_KEY"] = '3f880ddf94585cfc847b255b54355e5b0453620e5e94e980c904d50a7145cd04'
+os.environ["OPENAI_API_KEY"] = 'Your OpenAI Key'
+os.environ["SERPAPI_API_KEY"] = 'Your SerpAPT Key'
 
 # 试一试LangChain的Debug和Verbose，看看有何区别
 import langchain
