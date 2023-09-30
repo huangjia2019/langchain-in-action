@@ -1,7 +1,10 @@
+'''欢迎来到LangChain实战课
+https://time.geekbang.org/column/intro/100617601
+作者 黄佳'''
 # 设置OpenAI和SERPAPI的API密钥
 import os
-os.environ["OPENAI_API_KEY"] = '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'
-os.environ["SERPAPI_API_KEY"] = '3f880ddf94585cfc847b255b54355e5b0453620e5e94e980c904d50a7145cd04'
+os.environ["OPENAI_API_KEY"] = 'Your Key'
+os.environ["SERPAPI_API_KEY"] = 'Your Key'
 
 from langchain import OpenAI, SerpAPIWrapper 
 from langchain.agents import initialize_agent, Tool
