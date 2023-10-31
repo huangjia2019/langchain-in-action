@@ -1,0 +1,63 @@
+<!-- templates/index.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <title>人脉工具</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css" />
+    <div class="spinner-container" id="spinner-container" style="display: none;">
+        <i id="loading-spinner" class="fas fa-spinner fa-spin"></i>
+    </div>
+</head>
+<body>
+    <div class="container">
+        <h1>易速鲜花人脉工具</h1>
+        <form id="name-form">
+            <input type="text" id="flower" name="flower" placeholder="输入一种花（或者其它东西也行）">
+            <button id="magic-button" type="submit">找到大V</button>
+        </form>
+        <div id="result">
+            <img id="profile-pic" src="" alt="Profile Picture" style="display: none; max-width: 100%; height: auto; border-radius: 50%; margin-bottom: 20px;">
+            <h2>基本情况</h2>
+            <p id="summary"></p>
+            <h2>特色内容</h2>
+            <div id="facts"></div>
+            <h2>可能感兴趣的事儿</h2>
+            <div id="interest"></div>
+            <h2>联络邮件</h2>
+            <div id="letter"></div>
+        </div>
+    </div>
+    <script>
+        $(document).ready(function () {
+            $('#name-form').on('submit', function (e) {
+                e.preventDefault();
+                $('#spinner-container').show();
+                $.ajax({
+                    url: '/process',
+                    data: $('#name-form').serialize(),
+                    type: 'POST',
+                    success: function (response) {
+                        $('#profile-pic').attr('src', 'https://media.licdn.com/dms/image/C5603AQFNBlle-yAc5g/profile-displayphoto-shrink_800_800/0/1517403045625?e=1702512000&v=beta&t=klKCelFxssjEw0Y1_3bmzP9YLy8yGijKz9_P16lGy5w'); 
+                        $('#profile-pic').show(); 
+                        $('#summary').text(response.summary);
+                        $('#facts').html('<ul>' + response.facts.map(fact => '<li>' + fact + '</li>').join('') + '</ul>');
+                        $('#interest').html('<ul>' + response.interest.map(interest => '<li>' + interest + '</li>').join('') + '</ul>');
+                        $('#letter').text(response.letter);
+                    },
+                    error: function (error) {
+                        console.log(error);
+                    },
+                    complete: function () {
+                        $('#spinner-container').hide();
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
