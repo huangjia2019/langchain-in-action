@@ -15,7 +15,7 @@ from langchain.chains import LLMChain
 from langchain.chat_models import ChatOpenAI
 
 # 设置OpenAI API密钥
-os.environ["OPENAI_API_KEY"] = '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'  
+os.environ["OPENAI_API_KEY"] = 'Your Key'  
 
 # 带记忆的聊天机器人类
 class ChatbotWithMemory:
