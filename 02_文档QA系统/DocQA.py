@@ -19,7 +19,7 @@ for file in os.listdir(base_dir):
     if file.endswith('.pdf'):
         loader = PyPDFLoader(file_path)
         documents.extend(loader.load())
-    elif file.endswith('.docx') or file.endswith('.doc'):
+    elif file.endswith('.docx'):
         loader = Docx2txtLoader(file_path)
         documents.extend(loader.load())
     elif file.endswith('.txt'):
