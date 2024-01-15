@@ -2,13 +2,18 @@
 https://time.geekbang.org/column/intro/100617601
 作者 黄佳'''
 # ------Part 1
+from dotenv import load_dotenv  # 用于加载环境变量
+load_dotenv()  # 加载 .env 文件中的环境变量
+
 # 设置OpenAI API密钥
 import os
-os.environ["OPENAI_API_KEY"] = 'Your OpenAI API Key'
+# os.environ["OPENAI_API_KEY"] = 'Your OpenAI API Key'
 
 # 创建模型实例
 from langchain import OpenAI
-model = OpenAI(model_name='text-davinci-003')
+# from langchain.chat_models import ChatOpenAI
+model = OpenAI(model_name='gpt-3.5-turbo-instruct')
+# model = ChatOpenAI(model_name='gpt-4')
 
 # ------Part 2
 # 创建一个空的DataFrame用于存储结果

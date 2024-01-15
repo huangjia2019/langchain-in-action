@@ -2,13 +2,17 @@
 https://time.geekbang.org/column/intro/100617601
 作者 黄佳'''
 
+from dotenv import load_dotenv  # 用于加载环境变量
+load_dotenv()  # 加载 .env 文件中的环境变量
+
 #---- Part 0 导入所需要的类
 import os
 import requests
 from PIL import Image
 from transformers import BlipProcessor, BlipForConditionalGeneration
 from langchain.tools import BaseTool
-from langchain import OpenAI
+# from langchain import OpenAI
+from langchain_openai import OpenAI
 from langchain.agents import initialize_agent, AgentType
 
 #---- Part I 初始化图像字幕生成模型
@@ -43,7 +47,7 @@ class ImageCapTool(BaseTool):
 
 #---- PartIII 初始化并运行LangChain智能体
 # 设置OpenAI的API密钥并初始化大语言模型（OpenAI的Text模型）
-os.environ["OPENAI_API_KEY"] = '你的OpenAI API Key'
+# os.environ["OPENAI_API_KEY"] = '你的OpenAI API Key'
 llm = OpenAI(temperature=0.2)
 
 # 使用工具初始化智能体并运行
@@ -56,3 +60,4 @@ agent = initialize_agent(
 )
 img_url = 'https://mir-s3-cdn-cf.behance.net/project_modules/hd/eec79e20058499.563190744f903.jpg'
 agent.run(input=f"{img_url}\n请创作合适的中文推广文案")
+agent.invoke(input=f"{img_url}\n请创作合适的中文推广文案")
