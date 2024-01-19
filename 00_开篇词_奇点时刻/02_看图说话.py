@@ -14,6 +14,7 @@ from langchain.tools import BaseTool
 # from langchain import OpenAI
 from langchain_openai import OpenAI
 from langchain.agents import initialize_agent, AgentType
+# from langchain.agents import create_react_agent # 未来需要改成下面的设计
 
 #---- Part I 初始化图像字幕生成模型
 # 指定要使用的工具模型（HuggingFace中的image-caption模型）
@@ -58,6 +59,11 @@ agent = initialize_agent(
     llm=llm,
     verbose=True,
 )
+# 未来需要改成下面的设计
+# agent = create_react_agent(
+#     tools=tools,
+#     llm=llm,
+# )
 img_url = 'https://mir-s3-cdn-cf.behance.net/project_modules/hd/eec79e20058499.563190744f903.jpg'
-agent.run(input=f"{img_url}\n请创作合适的中文推广文案")
+# agent.run(input=f"{img_url}\n请创作合适的中文推广文案")
 agent.invoke(input=f"{img_url}\n请创作合适的中文推广文案")
