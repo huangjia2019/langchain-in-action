@@ -1,0 +1,8 @@
+{
+    "DEPLOYMENT_NAME": "gpt-35-turbo",
+    "API_KEY": "0axxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+    "BASE_URL": "https://xxxxxxxxxxxxxxxxxx.openai.azure.com/",
+    "API_VERSION": "2023-xx-xx-preview",
+    "API_TYPE": "azure"
+}
+
