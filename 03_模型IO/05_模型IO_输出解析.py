@@ -1,20 +1,24 @@
 '''欢迎来到LangChain实战课
 https://time.geekbang.org/column/intro/100617601
 作者 黄佳'''
-# 通过LangChain调用模型
-from langchain import PromptTemplate, OpenAI
+from dotenv import load_dotenv  # 用于加载环境变量
+load_dotenv()  # 加载 .env 文件中的环境变量
 
 # 导入OpenAI Key
 import os
-os.environ["OPENAI_API_KEY"] = '你的OpenAI API Key'
+# os.environ["OPENAI_API_KEY"] = '你的OpenAI API Key'
 
+# 导入LangChain中的提示模板
+from langchain.prompts import PromptTemplate
 # 创建提示模板
 prompt_template = """您是一位专业的鲜花店文案撰写员。
 对于售价为 {price} 元的 {flower_name} ，您能提供一个吸引人的简短描述吗？
 {format_instructions}"""
 
+# 通过LangChain调用模型
+from langchain_openai import OpenAI
 # 创建模型实例
-model = OpenAI(model_name='text-davinci-003')
+model = OpenAI(model_name='gpt-3.5-turbo-instruct')
 
 # 导入结构化输出解析器和ResponseSchema
 from langchain.output_parsers import StructuredOutputParser, ResponseSchema
@@ -45,7 +49,7 @@ for flower, price in zip(flowers, prices):
     input = prompt.format(flower_name=flower, price=price)
 
     # 获取模型的输出
-    output = model(input)
+    output = model.invoke(input)
     
     # 解析模型的输出（这是一个字典结构）
     parsed_output = output_parser.parse(output)

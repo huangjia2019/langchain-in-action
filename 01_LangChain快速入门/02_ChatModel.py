@@ -28,7 +28,8 @@ load_dotenv()  # 加载 .env 文件中的环境变量
 from openai import OpenAI
 client = OpenAI()
 
-response = client.completions.create(  model="gpt-4",
+response = client.completions.create(  
+  model="gpt-4",
   messages=[
         {"role": "system", "content": "You are a creative AI."},
         {"role": "user", "content": "请给我的花店起个名"},
