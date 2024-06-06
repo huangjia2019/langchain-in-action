@@ -4,7 +4,8 @@ https://time.geekbang.org/column/intro/100617601
 
 # import os
 # os.environ["OPENAI_API_KEY"] = '你的OpenAI API Key'
-from langchain.llms import OpenAI
+
+from langchain_openai import OpenAI
 llm = OpenAI(  
     model="gpt-3.5-turbo-instruct",
     temperature=0.8,
