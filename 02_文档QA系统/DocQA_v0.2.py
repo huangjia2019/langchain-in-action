@@ -1,4 +1,4 @@
-'''欢迎来到LangChain实战课
+'''欢迎来到LangChain实战课 测试
 https://time.geekbang.org/column/intro/100617601
 作者 黄佳'''
 
